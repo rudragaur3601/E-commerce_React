@@ -11,7 +11,7 @@ const Product = () => {
   console.log(listofProduct)
 
 
-  useEffect(() => { 
+  useEffect(() => {
     fetchData();
   }, []);
 
@@ -31,39 +31,39 @@ const Product = () => {
   return listofProduct.length === 0 ? <Skeleton /> : (
     <div >
 
-      <div className="mx-4 my-1 rounded ">
+      <div className="mx-4 my-2 rounded ">
 
-        <input className="px-5 py-1" type="text" placeholder="Search" value={searchText} onChange={(e) => {
+        <input className="px-5 py-2" type="text" placeholder="Search" value={searchText} onChange={(e) => {
           setsearchText(e.target.value)
 
           // console.log(e.target.value)
         }} />
-        
-        <button className="mx-2 px-5 py-1 bg-slate-500 rounded focus:ring-1 ring-black  " onClick={() => {
+
+        <button className="mx-1 px-5 py-2 bg-gray-400 rounded focus:ring-1 ring-black  " onClick={() => {
           const filterData = listofProduct.filter((product) => {
             return product.title.toLowerCase().includes(searchText.toLowerCase())
           })
           setfilterProduct(filterData)
         }}>Search</button>
 
+        <button
+          onClick={() => {
+            const result = listofProduct.filter(
+              (listofProduct) => listofProduct.rating.rate >= 4
+            );
+            setfilterProduct(result);
+          }}
+          className="mx-2   border-black px-5 py-2 bg-blue-500 focus:ring-2 ring-black rounded"
+        >
+          Top Rated Products
+        </button>
       </div>
 
-      <button
-        onClick={() => {
-          const result = listofProduct.filter(
-            (listofProduct) => listofProduct.rating.rate >= 4
-          );
-          setfilterProduct(result);
-        }}
-        className="mx-4 my-1 border-1 border-black p-2 bg-blue-500 focus:ring-2 ring-black rounded"
-      >
-        Top Rated Products
-      </button>
 
       <div className="m-4 flex flex-wrap gap-5 ">
         {filterProduct.map((product, index) => {
 
-          return <Link key={product.id} to={`/product/${product.id}`}><ProductCard  product={product} /></Link>;
+          return <Link key={product.id} to={`/product/${product.id}`}><ProductCard product={product} /></Link>;
 
         })}
       </div>

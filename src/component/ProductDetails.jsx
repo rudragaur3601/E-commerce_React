@@ -1,25 +1,14 @@
-import React, { useState, useEffect } from 'react'
-import Skeleton from './Skeleton'
+
+
 import { useParams } from 'react-router-dom'
+import useGetSingleProduct from '../hooks/useGetSingleProduct'
 
 
 const ProductDetails = () => {
-    const [singleProduct, setsingleProduct] = useState(null)
+
     // const params=useParams();
-    const { productid } = useParams()
-    // console.log(params)
-
-
-    useEffect(() => {
-        fetchData()
-
-    }, [])
-    const fetchData = async () => {
-        const data = await fetch(`https://fakestoreapi.com/products/${productid}`);
-        const resData = await data.json();
-        setsingleProduct(resData)
-
-    }
+    const { productid } = useParams() // console.log(params)
+    const singleProduct = useGetSingleProduct(productid)
     if (singleProduct === null) {
         return <h1>Loading</h1>
     }

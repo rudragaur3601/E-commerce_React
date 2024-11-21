@@ -15,7 +15,7 @@ const Navbar = () => {
     }, [btnName])
 
     return (
-        <div className='bg-gray-900 flex justify-between p-6 border border-black text-white cursor-pointer '>
+        <div className='bg-gray-500  flex justify-between p-6 shadow border-black text-white cursor-pointer '>
             <h1 className='text-3xl font-semibold'><Link to ="/">NewTrendz</Link></h1>
             <div className='flex gap-5 '>
                 <ul className='flex gap-5 text-sm list-none items-center'>
@@ -29,10 +29,13 @@ const Navbar = () => {
                         <Link to="/kids">KIDS</Link>
                     </li>
                     <li>
-                        <Link to="/About">ABOUT</Link>
+                        <Link to="/grocery">GROCERY</Link>
                     </li>
                     <li>
                         <Link to="/cart">CART</Link>
+                    </li>
+                    <li>
+                        <Link to="/About">ABOUT</Link>
                     </li>
                 </ul>
                 <button onClick={() => {

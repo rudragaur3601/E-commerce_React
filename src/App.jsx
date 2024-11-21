@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './component/Navbar'
 import Product from './component/Product'
@@ -10,6 +10,9 @@ import Home from './pages/Home';
 import Error from './pages/Error';
 import ProductDetails from './component/ProductDetails';
 import About from './pages/About';
+// import Grocery from './pages/Grocery';  // we will not import this normally we will import this is lazy
+
+const Grocery = lazy(() => import('./pages/Grocery'));
 
 
 const App = () => {
@@ -26,8 +29,9 @@ const App = () => {
           <Route path="/kids" element={<Kids />} />
           <Route path="/about" element={<About/>} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="*" element={<Error/>} />
+          <Route path="/grocery" element={<Suspense fallback={<h1>Loading ...</h1>}><Grocery/></Suspense>} />
           <Route path="/product/:productid" element={<ProductDetails/>} />
+          <Route path="*" element={<Error/>} />
         </Routes>
       </div>
 
