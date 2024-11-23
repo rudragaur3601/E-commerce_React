@@ -29,17 +29,17 @@ const Product = () => {
   //   return <Skeleton/>
   // }
   return listofProduct.length === 0 ? <Skeleton /> : (
-    <div >
+    <div className=" ">
 
-      <div className="mx-4 my-2 rounded ">
+      <div className=" rounded flex items-center justify-center p-2">
 
-        <input className="px-5 py-2" type="text" placeholder="Search" value={searchText} onChange={(e) => {
+        <input className="px-3 py-2 rounded-md border-2" type="text" placeholder="Search" value={searchText} onChange={(e) => {
           setsearchText(e.target.value)
 
           // console.log(e.target.value)
         }} />
 
-        <button className="mx-1 px-5 py-2 bg-gray-400 rounded focus:ring-1 ring-black  " onClick={() => {
+        <button className="mx-1 px-5 py-2 bg-gray-400 rounded focus:ring-1 ring-black hover:bg-gray-500 " onClick={() => {
           const filterData = listofProduct.filter((product) => {
             return product.title.toLowerCase().includes(searchText.toLowerCase())
           })
@@ -53,14 +53,14 @@ const Product = () => {
             );
             setfilterProduct(result);
           }}
-          className="mx-2   border-black px-5 py-2 bg-blue-500 focus:ring-2 ring-black rounded"
+          className="mx-2   border-black px-5 py-2 bg-blue-500 focus:ring-2 ring-black rounded  hover:bg-blue-600"
         >
           Top Rated Products
         </button>
       </div>
 
 
-      <div className="m-4 flex flex-wrap gap-5 ">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 max-w-6xl mx-auto mt-5">
         {filterProduct.map((product, index) => {
 
           return <Link key={product.id} to={`/product/${product.id}`}><ProductCard product={product} /></Link>;

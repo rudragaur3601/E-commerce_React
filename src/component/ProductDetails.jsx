@@ -16,22 +16,26 @@ const ProductDetails = () => {
     const { image, title, rating, price, description } = singleProduct
 
     return (
-        <div className='product border border-black p-8 flex flex-col  w- h-auto  rounded-md bg-white mx-5 my-4'>
+        <div className='product border  border-black p-8 flex  justify-evenly  rounded-md bg-white mx-5 my-4'>
+            <div>
             <img
-                className="w-[180px] h-[180px] object-cover rounded"
+                className="w-[400px] h-[400px] object-fill rounded p-5"
                 src={image}
                 alt="T-shirt"
             ></img>
-            <div className="mx-2 my-5 ">
-                <h1 className="font-semibold text-xl my-4 ">{title}</h1>
 
-                <p className="text-l font-serif border bg-green-600 inline p-2 text-center">
+            </div>
+            
+            <div className="w-[500px] h-[300px] ">
+                <h1 className="font-semibold text-xl  p-5 my-5   ">{title}</h1>
+
+                <p className="text-l font-serif border bg-green-600 inline p-4 text-center">
                     Ratings : {rating.rate}
                 </p>
-                <p className="text-l font-medium m-2 ">
+                <p className="text-l  font-medium p-5 my-5">
                     Price : <span>{price}</span>
                 </p>
-                <p>
+                <p className=' p-5'>
                     {description}
                 </p>
             </div>

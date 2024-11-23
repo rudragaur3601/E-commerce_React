@@ -9,19 +9,22 @@ const ProductCard = ({ product }) => {
 
 
     return (
-        <div className="border border-black p-8 flex flex-col items-center w-[230px] h-[320px] overflow-scroll rounded-md bg-white hover:bg-gray-300    ">
+        <div className="border-2 flex flex-col justify-evenly items-center p-8 h-80 hover:bg-slate-200 rounded-lg">
+            <div>
             <img
-                className="w-[120px] h-[120px] object-cover rounded"
+                className="w-[100px] h-[100px] object-cover rounded "
                 src={image}
                 alt="T-shirt"
             ></img>
-            <div className="m-2 ">
-                <h1 className="font-semibold text-l my-2 ">{title}</h1>
+            </div>
+            
+            <div className=" my-3 p-2">
+                <h1 className="text-sm font-semibold ">{title}</h1>
 
-                <p className="text-l font-serif border bg-green-600 inline p-2 ">
+                <p className="text-sm  bg-green-600 inline  ">
                     Ratings : {rating.rate}
                 </p>
-                <p className="text-l font-normal m-2 ">
+                <p className=" text-sm ">
                     Price : <span>{price}</span>
                 </p>
             </div>

@@ -15,26 +15,26 @@ const Navbar = () => {
     }, [btnName])
 
     return (
-        <div className='bg-gray-500  flex justify-between p-6 shadow border-black text-white cursor-pointer '>
+        <div className='bg-blue-950 flex justify-between p-6 shadow border-black text-white cursor-pointer '>
             <h1 className='text-3xl font-semibold'><Link to ="/">NewTrendz</Link></h1>
             <div className='flex gap-5 '>
-                <ul className='flex gap-5 text-sm list-none items-center'>
-                    <li >
+                <ul className='flex gap-5 text-sm list-none items-center '>
+                    <li className='hover:text-lg' >
                         <Link to="/men">MEN</Link>
                     </li>
-                    <li>
+                    <li className='hover:text-lg' >
                         <Link to="/women">WOMEN</Link>
                     </li>
-                    <li>
+                    <li className='hover:text-lg' >
                         <Link to="/kids">KIDS</Link>
                     </li>
-                    <li>
+                    <li className='hover:text-lg' >
                         <Link to="/grocery">GROCERY</Link>
                     </li>
-                    <li>
+                    <li className='hover:text-lg' >
                         <Link to="/cart">CART</Link>
                     </li>
-                    <li>
+                    <li className='hover:text-lg' >
                         <Link to="/About">ABOUT</Link>
                     </li>
                 </ul>
