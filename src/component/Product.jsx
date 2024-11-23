@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ProductCard from "./ProductCard";
+import ProductCard, { HOF } from "./ProductCard";
 import Skeleton from "./Skeleton";
 import { Link } from "react-router-dom";
 // import { productList } from '../utils/constant'
@@ -24,14 +24,16 @@ const Product = () => {
     setfilterProduct(resData)
   };
 
+  const HOFComponent = HOF(Product) ; // this is a higher order component
+
   // Conditional Rendering
   // if(listofProduct.length===0){
   //   return <Skeleton/>
   // }
   return listofProduct.length === 0 ? <Skeleton /> : (
-    <div className=" ">
+    <div className="">
 
-      <div className=" rounded flex items-center justify-center p-2">
+      <div className=" rounded flex items-center justify-center my-5 ">
 
         <input className="px-3 py-2 rounded-md border-2" type="text" placeholder="Search" value={searchText} onChange={(e) => {
           setsearchText(e.target.value)
@@ -60,10 +62,17 @@ const Product = () => {
       </div>
 
 
-      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 max-w-6xl mx-auto mt-5">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 max-w-6xl mx-auto  ">
         {filterProduct.map((product, index) => {
 
-          return <Link key={product.id} to={`/product/${product.id}`}><ProductCard product={product} /></Link>;
+          return <Link key={product.id} to={`/product/${product.id}`}>
+            {
+              product.rating.rate>=4 ? <HOFComponent product={product} /> : <ProductCard product={product} />
+              
+
+            }
+
+              </Link>;
 
         })}
       </div>

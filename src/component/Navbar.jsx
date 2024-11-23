@@ -15,26 +15,26 @@ const Navbar = () => {
     }, [btnName])
 
     return (
-        <div className='bg-blue-950 flex justify-between p-6 shadow border-black text-white cursor-pointer '>
-            <h1 className='text-3xl font-semibold'><Link to ="/">NewTrendz</Link></h1>
+        <div className=' flex justify-between p-6 shadow-md border-black  cursor-pointer '>
+            <h1 className='text-3xl  font-semibold '><Link to ="/">New<span >Trendz</span></Link></h1>
             <div className='flex gap-5 '>
-                <ul className='flex gap-5 text-sm list-none items-center '>
-                    <li className='hover:text-lg' >
+                <ul className='flex gap-5 text-sm list-none items-center  '>
+                    <li className='hover:text-lg hover:font-semibold' >
                         <Link to="/men">MEN</Link>
                     </li>
-                    <li className='hover:text-lg' >
+                    <li className='hover:text-lg hover:font-semibold' >
                         <Link to="/women">WOMEN</Link>
                     </li>
-                    <li className='hover:text-lg' >
+                    <li className='hover:text-lg hover:font-semibold' >
                         <Link to="/kids">KIDS</Link>
                     </li>
-                    <li className='hover:text-lg' >
+                    <li className='hover:text-lg hover:font-semibold' >
                         <Link to="/grocery">GROCERY</Link>
                     </li>
-                    <li className='hover:text-lg' >
+                    <li className='hover:text-lg hover:font-semibold' >
                         <Link to="/cart">CART</Link>
                     </li>
-                    <li className='hover:text-lg' >
+                    <li className='hover:text-lg hover:font-semibold' >
                         <Link to="/About">ABOUT</Link>
                     </li>
                 </ul>

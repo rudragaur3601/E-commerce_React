@@ -9,10 +9,10 @@ const ProductCard = ({ product }) => {
 
 
     return (
-        <div className="border-2 flex flex-col justify-evenly items-center p-8 h-80 hover:bg-slate-200 rounded-lg">
+        <div className=" box-border border-2 flex flex-col justify-evenly items-center p-2 h-[350px] hover:bg-slate-200 hover:shadow-xl rounded-lg bg-slate-100">
             <div>
             <img
-                className="w-[100px] h-[100px] object-cover rounded "
+                className="w-full h-36 object-cover rounded "
                 src={image}
                 alt="T-shirt"
             ></img>
@@ -33,3 +33,17 @@ const ProductCard = ({ product }) => {
 };
 
 export default ProductCard;
+
+
+export const HOF=( Product)=>{
+    return (props)=>{
+        return(
+            <div className="relative">
+                <span className="bg-orange-500 text-white px-4 py-1 rounded-md absolute -left-1 -top-1" > Best Seller</span>
+                <ProductCard {...props}/>
+                
+
+            </div>
+        )
+    }
+}
